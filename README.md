@@ -100,21 +100,18 @@ Or delete or modify code and url directly from DB  table: public.short_urls
 Once the shlink container is running, you can interact with the CLI tool by running `shlink` with any of the supported commands.
 Or you can list all tags with:
 ```
-docker exec -it shlink_container shlink tag:list
+/etc/shlink# shlink tag:list
 ```
 Or locate remaining visits with:
 
 ```
-docker exec -it shlink_container shlink visit:locate
+/etc/shlink# shlink visit:locate
 ```
 
 All shlink commands will work the same way.
 
-You can also list all available commands just by running this:
+You can also list all available commands just by running ```shlink```
 
-```
-docker exec -it shlink_container shlink
-```
 Other commands:
 ```
  short-url
