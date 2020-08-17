@@ -20,7 +20,9 @@ The service provides custom shorturls under the domain host _http://shlink.docke
 Subsequently, thanks to a WAF (Web Application Firewall) solution adopted, the same domain was made accessible at: https://shorturl.arpalombardia.it/meteo/shlink/
 
 **1. Generate a GeoLite2 License key**
-<div style="text-color:red">aaa</div>
+
+_[ONLY FIRST TIME!!!!!]_
+
 The _GEOLITE_LICENSE_KEY_ is the license key used to download new GeoLite2 database files. This is not mandatory, as a default license key is provided, but it is strongly recommended to provide your own. Go to [https://shlink.io/documentation/geolite-license-key](https://shlink.io/documentation/geolite-license-key) to know how to generate it.
 
 In this case an account and a license key for idro@arpalombardia.it was created. To login in: https://www.maxmind.com/en/account/login
@@ -50,6 +52,8 @@ docker run \
 ```
 
 **3. Generate the API-key**
+
+_[ONLY FIRST TIME!!!!!]_
 
 Once the shlink container is running, you can interact with the CLI tool by running `shlink`.
 For example, if the container is called `shlink_container`, you can generate a new API key with:
