@@ -54,22 +54,57 @@ docker run \
 Once the shlink container is running, you can interact with the CLI tool by running `shlink`.
 For example, if the container is called `shlink_container`, you can generate a new API key with:
 
-```bash
+```
 docker exec -it shlink_container shlink api-key:generate
 ```
 
-**4. Interact with the CLI tool**
+Or opening the container console with:
+```
+docker exec -it shlink_container /bin/sh/
+```
+and write:
+```
+/etc/shlink# shlink api-key:generate
+```
+When the key is generated it is reported in the db table db_shlink_swarm > public.api_keys
+
+**4. Generate/Delete/Modify shorturl**
+
+***4.1 Create a new shorturl***
+
+It is possible to create a new shorturl using the CLI tool from the cointainer console (in this case shlink provide a random shorturl code):
+```
+/etc/shlink# shlink short-url:generate
+```                                                                            
+```                                                                                                                        
+Which URL do you want to shorten?:                                                                                      
+ > http://www.example.com                                                                                                
+                                                                                                                         
+Processed long URL: http://www.example.com                                                                               
+Generated short URL: http://shlink2.docker.arpa.local/YXo2e
+```
+Or add the redirect url and the shorturl code directly into the DB table: public.short_urls
+
+***4.2 Delete shorturl***
+It is possible to delete a shorturl using the CLI tool from the cointainer console given its shorturl code:
+```
+/etc/shlink# shlink short-url:delete YXo2e
+```   
+```
+ [OK] Short URL with short code "YXo2e" successfully deleted.          
+```
+Or delete or modify code and url directly from DB  table: public.short_urls
+
+**5. Interact with the CLI tool**
 
 Once the shlink container is running, you can interact with the CLI tool by running `shlink` with any of the supported commands.
 Or you can list all tags with:
-
-```bash
+```
 docker exec -it shlink_container shlink tag:list
 ```
-
 Or locate remaining visits with:
 
-```bash
+```
 docker exec -it shlink_container shlink visit:locate
 ```
 
@@ -77,8 +112,15 @@ All shlink commands will work the same way.
 
 You can also list all available commands just by running this:
 
-```bash
+```
 docker exec -it shlink_container shlink
 ```
-
-
+Other commands:
+```
+ short-url
+  short-url:delete    Deletes a short URL
+  short-url:generate  Generates a short URL for provided long URL and returns it
+  short-url:list      List all short URLs
+  short-url:parse     Returns the long URL behind a short code
+  short-url:visits    Returns the detailed visits information for provided short code
+```
