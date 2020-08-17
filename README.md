@@ -1,8 +1,22 @@
-# Shlink Docker image
+## Introduction
+This repository reports installation and configuration procedures, for the use in ARPA LOMBARDIA, of Shlink: a PHP-based self-hosted URL shortener that can be used to serve shortened URLs under personal/custom domain.
 
-[![Docker pulls](https://img.shields.io/docker/pulls/shlinkio/shlink.svg?style=flat-square)](https://hub.docker.com/r/shlinkio/shlink/)
+In this case, to easly set up Shlink, the official docker image [shlinkio/shlink:stable](https://hub.docker.com/r/shlinkio/shlink/tags) is used to generate a container.
 
-This image provides an easy way to set up [shlink](https://shlink.io) on a container-based runtime.
+In the custom configuration shown below, Shlink is set up using an existing external PostgreSQL DB.
+
+The idea is that you can just generate a container using the image and provide custom config via env vars.
+
+## Official docs about Shlink:
+
+- Shink website: [Shlink - website](https://shlink.io)
+- Official docs to instal Shlink using a docker image: [Shlink Docker - GitHub page](https://github.com/shlinkio/shlink/tree/develop/docker)
+
+
+
+## Shlink Docker image
+
+This image provides an easy way to set up [shlink](https://shlink.io) .
 
 It exposes a shlink instance served with [swoole](https://www.swoole.co.uk/), which persists data in a local [sqlite](https://www.sqlite.org/index.html) database.
 
