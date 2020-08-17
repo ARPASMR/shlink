@@ -1,26 +1,20 @@
 ## Introduction
-This repository reports installation and configuration procedures, for the use in ARPA LOMBARDIA, of Shlink: a PHP-based self-hosted URL shortener that can be used to serve shortened URLs under personal/custom domain.
+This repository reports installation and configuration procedures, for the use in ARPA LOMBARDIA, of _Shlink_: a PHP-based self-hosted URL shortener that can be used to serve shortened URLs under personal/custom domain.
 
 In this case, to easly set up Shlink, the official docker image [shlinkio/shlink:stable](https://hub.docker.com/r/shlinkio/shlink/tags) is used to generate a container.
 
-In the custom configuration shown below, Shlink is set up using an existing external PostgreSQL DB.
-
-The idea is that you can just generate a container using the image and provide custom config via env vars.
-
-## Official docs about Shlink:
+## Official docs about Shlink
 
 - Shink website: [Shlink - website](https://shlink.io)
-- Official docs to instal Shlink using a docker image: [Shlink Docker - GitHub page](https://github.com/shlinkio/shlink/tree/develop/docker)
-
-
-
-## Shlink Docker image
-
-This image provides an easy way to set up [shlink](https://shlink.io) .
-
-It exposes a shlink instance served with [swoole](https://www.swoole.co.uk/), which persists data in a local [sqlite](https://www.sqlite.org/index.html) database.
+- Official docs to install Shlink using a docker image: [Shlink Docker - GitHub page](https://github.com/shlinkio/shlink/tree/develop/docker)
 
 ## Usage
+To read all about how to install a Shlink service read the official documentation on [Shlink Docker - GitHub page](https://github.com/shlinkio/shlink/tree/develop/docker).
+
+## ARPA LOMBARDIA - Custom configuration settled to generate shorturls on domain host _http://shlink.docker.arpa.local/meteo/shlink/_
+In the custom configuration shown below, Shlink is set up using an existing external PostgreSQL DB.
+The service provides custom shorturls under the domain host _http://shlink.docker.arpa.local/meteo/shlink/_. 
+Subsequently, thanks to a WAF (Web Application Firewall) solution adopted, the same domain was made accessible at: https://shorturl.arpalombardia.it/meteo/shlink/
 
 Shlink docker image exposes port `8080` in order to interact with its HTTP interface.
 
